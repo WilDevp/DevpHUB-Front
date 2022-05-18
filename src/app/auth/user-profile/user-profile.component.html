@@ -1,0 +1,29 @@
+<div class="container">
+  <div>
+    <br>  
+    Bienvenido <b>{{name}}</b>.<br /> has publicado <b>{{postLength}}</b> y comentado
+    <b>{{commentLength}}</b>
+    puedes consultar su publicación y el historial de comentarios a continuación.
+  </div>
+  <hr />
+  <div>
+    Tus publicaciones:
+  </div>
+  <app-post-tile [posts]="posts"></app-post-tile>
+  <hr />
+  <div>
+    Tus comentarios:
+  </div>
+  <div *ngFor="let comment of comments">
+    <div class="comment">
+      <div class="username">
+        <a routerLink="/user/comment.username">{{comment.userName}}</a>
+      </div>
+      <div>
+        <p>{{comment.duration}}</p>
+      </div>
+      <b>{{comment.text}}</b>
+    </div>
+    <hr />
+  </div>
+</div>

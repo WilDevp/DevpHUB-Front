@@ -1,0 +1,31 @@
+<header>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+        <div class="flex-grow-1">
+            <a aria-label="Home" class="logo" routerLink="/">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="reddit-icon-svg">
+                  
+                </svg>
+                <span class="reddit-text">
+                    <span class="reddit-text" style="font-weight: bold; color:black ; font-size: 30px;">DEVP</span>  <span class="reddit-text" style="font-weight: bold; color:orangered ; font-size: 30px;">HUB</span>
+
+                </span>
+            </a>
+        </div>
+        <div class="flex-grow-1 float-right">
+            <div *ngIf="isLoggedIn" ngbDropdown class="float-right">
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                    <button (click)="goToUserProfile()" ngbDropdownItem>Perfil</button>
+                    <button (click)="logout()" ngbDropdownItem>Cerrar sesion</button>
+                </div>
+                <button class="userdetails" id="dropdownBasic1" ngbDropdownToggle>
+                    <img class="account-icon" src="https://cdn-icons-png.flaticon.com/512/2165/2165563.png">
+                    {{username}}
+                </button>
+            </div>            
+            <div *ngIf="!isLoggedIn">
+                <a routerLink="/sign-up" class="float-right sign-up mr-2">Registrarse</a>
+                <a routerLink="/login" class="float-right login mr-2">Iniciar sesion</a>
+            </div>
+        </div>
+    </nav>
+</header>
